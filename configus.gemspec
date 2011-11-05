@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["mokevnin@gmail.com"]
   s.homepage    = "https://github.com/kaize/configus"
   s.summary     = "Configus helps you easily manage environment specific settings"
-  s.description = %q{TODO: Write a gem description}
+  s.description = "Configus helps you easily manage environment specific settings"
 
   s.rubyforge_project = "configus"
 
