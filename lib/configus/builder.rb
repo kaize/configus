@@ -29,7 +29,7 @@ module Configus
       parent = e[:options][:parent]
       if parent
         parent_config = result(parent)
-        current_config = parent_config.deep_merge!(current_config)
+        current_config = deep_merge(parent_config, current_config)
       end
 
       current_config
@@ -43,6 +43,14 @@ module Configus
           :options => options,
         }
         @envs[env][:block] = block if block_given?
+      end
+
+      def deep_merge(target, source)
+        source.each_pair do |k,v|
+          tv = target[k]
+          target[k] = tv.is_a?(Hash) && v.is_a?(Hash) ? deep_merge(tv, v) : v
+        end
+        target
       end
 
   end
