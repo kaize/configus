@@ -4,7 +4,7 @@
 
 Configus helps you easily manage environment specific settings
 
-[![Build Status](https://secure.travis-ci.org/[kaize]/[configus].png)](http://travis-ci.org/[kaize]/[configus])
+[![Build Status](https://secure.travis-ci.org/mokevnin/configus.png)](http://travis-ci.org/mokevnin/configus)
 
 ## Installing
 
