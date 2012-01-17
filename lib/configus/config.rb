@@ -26,7 +26,8 @@ module Configus
     end
 
     def each_pair(&block)
-      @config.each_pair(%block)
+      #TODO: hash values should be Configus instance object
+      @config.each_pair(&block)
     end
 
     def method_missing(meth, *args, &blk)

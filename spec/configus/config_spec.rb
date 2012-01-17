@@ -7,7 +7,8 @@ describe Configus::Config do
       :sections => {
         :first => 'first_value',
         :second => 'second_value'
-      }
+      },
+      :pairs => { :pkay => "vkay" }
     }
     @config = Configus::Config.new(@options)
   end
@@ -24,6 +25,10 @@ describe Configus::Config do
   it 'should be available as hash' do
     @config[:foo] == @options[:foo]
     @config[:sections].second == @options[:sections][:second]
+  end
+
+  it 'should passing each key-value pair' do
+    @config.pairs.each_pair { |key, value| } == @options[:pairs].each_pair { |key, value| }
   end
 end
 
