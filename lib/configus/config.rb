@@ -25,6 +25,10 @@ module Configus
       @config[key]
     end
 
+    def each_pair(&block)
+      @config.each_pair(%block)
+    end
+
     def method_missing(meth, *args, &blk)
       raise "'#{meth}' key does not exists in your configus"
     end
