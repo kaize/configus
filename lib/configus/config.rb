@@ -25,6 +25,10 @@ module Configus
       @config[key]
     end
 
+    def to_hash
+      @config
+    end
+
     def each_pair(&block)
       #TODO: hash values should be Configus instance object
       @config.each_pair(&block)
