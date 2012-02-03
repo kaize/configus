@@ -15,6 +15,8 @@ describe Configus::Builder do
       env :development, :parent => :production do
         bar 'foo'
         foo 'foobar'
+        nil_value nil
+        false_value false
         sections do
           first 'another_value'
         end
@@ -29,6 +31,8 @@ describe Configus::Builder do
       :key => 'value',
       :bar => 'foo',
       :foo => 'foobar',
+      :nil_value => nil,
+      :false_value => false,
       :sections => {
         :first => 'another_value',
         :second => 'second_value'

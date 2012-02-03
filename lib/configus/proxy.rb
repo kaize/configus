@@ -15,7 +15,7 @@ module Configus
     end
 
     def method_missing(key, value = nil, &block)
-      @result[key] = value ? value : self.class.generate(block)
+      @result[key] = block_given? ? self.class.generate(block) : value
     end
   end
 end
