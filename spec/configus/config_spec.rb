@@ -6,7 +6,10 @@ describe Configus::Config do
       :foo => 'bar',
       :sections => {
         :first => 'first_value',
-        :second => 'second_value'
+        :second => 'second_value',
+        :another_key => {
+          :key => :value
+        }
       },
       :pairs => { :pkay => "vkay" }
     }
@@ -25,6 +28,10 @@ describe Configus::Config do
   it 'should be available as hash' do
     @config[:foo] == @options[:foo]
     @config[:sections].second == @options[:sections][:second]
+  end
+
+  it 'should be transform to hash' do
+    @config.to_hash.should == @options
   end
 
   it 'should passing each key-value pair' do

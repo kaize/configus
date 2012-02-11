@@ -26,7 +26,11 @@ module Configus
     end
 
     def to_hash
-      @config
+      hash = {}
+      @config.each_pair do |key, value|
+        hash[key] = value.respond_to?(:to_hash) ? value.to_hash : value
+      end
+      hash
     end
 
     def each_pair(&block)
