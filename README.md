@@ -48,10 +48,17 @@ Add this to your `Gemfile`:
 
 ### Rails
 
-define your config in `config/initializers/configus.rb`
+define your config in `lib/configus.rb`
 
     Configus.build Rails.env do
       # settigns
+    end
+
+reload
+    
+    # config/environments/development.rb
+    ActionDispatch::Reloader.to_prepare do
+      load Rails.root.join('lib/configus.rb')
     end
 
 ## Similar
