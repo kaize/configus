@@ -4,7 +4,7 @@
 
 Configus helps you easily manage environment specific settings
 
-[![Build Status](https://secure.travis-ci.org/mokevnin/configus.png)](http://travis-ci.org/mokevnin/configus)
+[![Build Status](https://secure.travis-ci.org/kaize/configus.png)](http://travis-ci.org/kaize/configus)
 
 ## Installing
 
@@ -55,7 +55,7 @@ define your config in `lib/configus.rb`
     end
 
 reload
-    
+
     # config/environments/development.rb
     ActionDispatch::Reloader.to_prepare do
       load Rails.root.join('lib/configus.rb')
