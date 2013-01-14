@@ -5,6 +5,7 @@
 Configus helps you easily manage environment specific settings
 
 [![Build Status](https://secure.travis-ci.org/kaize/configus.png)](http://travis-ci.org/kaize/configus)
+[![Coverage Status](https://coveralls.io/repos/kaize/configus/badge.png?branch=master)](https://coveralls.io/r/kaize/configus/)
 
 ## Installing
 
