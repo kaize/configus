@@ -1,10 +1,11 @@
 require "configus/version"
-require 'configus/builder'
-require 'configus/proxy'
-require 'configus/config'
 require 'configus/core_ext/kernel'
 
 module Configus
+  autoload :Builder, 'configus/builder'
+  autoload :Proxy, 'configus/proxy'
+  autoload :Config, 'configus/config'
+
   def self.build(env, &block)
     @config = Builder.build(env, &block)
   end
