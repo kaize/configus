@@ -39,6 +39,8 @@ module Configus
 
       def env(env, options = {}, &block)
         env = env.to_sym
+        raise ArgumentError, "Double definition of environment '#{env}'" if @envs.keys.include?(env)
+
         @envs[env] = {
           :options => options,
         }
