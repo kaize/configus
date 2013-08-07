@@ -39,4 +39,17 @@ describe Configus::Builder do
       }
     }
   end
+
+  it 'should raise error' do
+    p = Proc.new do
+      env :production do
+        key_1 'value 1'
+      end
+
+      env :production do
+        key_2 'value 2'
+      end
+    end
+    expect{ Configus::Builder.new(:production, p) }.to raise_error ArgumentError
+  end
 end
