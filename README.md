@@ -56,7 +56,7 @@ Add this to your `Gemfile`:
 define your config in `lib/configus.rb`
 
     Configus.build Rails.env do
-      # settigns
+      # settings
     end
 
 reload
