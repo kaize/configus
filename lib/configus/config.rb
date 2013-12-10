@@ -39,7 +39,7 @@ module Configus
     end
 
     def method_missing(meth, *args, &blk)
-      raise "'#{meth}' key does not exists in your configus"
+      raise "'#{meth}' key does not exist in your configus"
     end
   end
 end
