@@ -52,4 +52,15 @@ describe Configus::Builder do
     end
     expect{ Configus::Builder.new(:production, p) }.to raise_error ArgumentError
   end
+
+  it 'should raise double definition error' do
+    p = Proc.new do
+      env :production do
+        foo 'bar'
+        foo 'bom'
+      end
+    end
+
+    expect{ Configus::Builder.new(:production, p).result }.to raise_error ArgumentError
+  end
 end
