@@ -10,12 +10,15 @@ module Configus
 
       (class << self; self; end).class_eval do
         config.each_pair do |key, value|
-          if value.is_a? Hash
+          case value
+          when Hash
             value = Config.new(value)
+          when Proc
+            value
           end
 
           define_method key.to_sym do
-            value
+            value.is_a?(Proc) ? instance_exec(&value) : value
           end
         end
       end
