@@ -2,16 +2,16 @@ module Configus
   class Builder
 
     class << self
-      def build(current_env, &block)
+      def build(current_env, default_configs = [], &block)
         b = new(current_env, block)
-        Config.new(b.result)
+        Config.new(b.result, default_configs)
       end
     end
 
     def initialize(current_env, block)
       @current_env = current_env.to_sym
       @envs = {}
-      instance_eval &block
+      instance_eval(&block)
     end
 
     def result(env = nil)

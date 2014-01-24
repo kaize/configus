@@ -6,8 +6,8 @@ module Configus
   autoload :Proxy, 'configus/proxy'
   autoload :Config, 'configus/config'
 
-  def self.build(env, &block)
-    @config = Builder.build(env, &block)
+  def self.build(env, yaml_configs = [], &block)
+    @config = Builder.build(env, yaml_configs, &block)
   end
 
   def self.config

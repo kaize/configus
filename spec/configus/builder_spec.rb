@@ -22,6 +22,7 @@ describe Configus::Builder do
         end
       end
     end
+
     builder = Configus::Builder.new(:development, p)
     @options = builder.result
   end
