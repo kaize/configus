@@ -1,9 +1,23 @@
 require 'singleton'
+require 'yaml'
 
 module Configus
   class Config
-    def initialize(config, section = nil)
+    def initialize(config, predefined_configs = [])
       @config = {}
+
+      if predefined_configs.any?
+        predefined_configs.each do |pconf_file|
+          if File.exist?(pconf_file)
+            pconf = YAML.load_file(pconf_file)
+            pconf = symbolize_keys(pconf)
+            config = pconf.merge(config)
+          else
+            puts "WARNING: You try to load config from file '#{pconf_file}', which are unavailable. Skipped."
+          end
+        end
+      end
+
       config.each_pair do |key, value|
         @config[key] = value.is_a?(Hash) ? Config.new(value) : value
       end
@@ -30,9 +44,11 @@ module Configus
 
     def to_hash
       hash = {}
+
       @config.each_pair do |key, value|
         hash[key] = value.respond_to?(:to_hash) ? value.to_hash : value
       end
+
       hash
     end
 
@@ -43,6 +59,23 @@ module Configus
 
     def method_missing(meth, *args, &blk)
       raise "'#{meth}' key does not exist in your configus"
+    end
+
+    private
+
+    def symbolize_keys(hash)
+      hash.inject({}){|result, (key, value)|
+        new_key = case key
+                  when String then key.to_sym
+                  else key
+                  end
+        new_value = case value
+                    when Hash then symbolize_keys(value)
+                    else value
+                    end
+        result[new_key] = new_value
+        result
+      }
     end
   end
 end

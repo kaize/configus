@@ -96,3 +96,29 @@ describe "Hardcore" do
   end
 end
 
+describe "Config with default config" do
+  before do
+    @options = {
+      :foo => 'bar',
+      :sections => {
+        :first => 'first_value',
+        :second => 'second_value',
+        :another_key => {
+          :key => :value
+        }
+      },
+      :pairs => { :pkay => "vkay" }
+    }
+
+    configs = %w(test.yml).map {|f| File.join(fixtures_path, f)}
+    @config = Configus::Config.new(@options, configs)
+  end
+
+  it 'options from file should be defined in configus' do
+    @config.another_option.some_thing == "value"
+  end
+
+  it 'option from config file should be overwritten by configus dsl' do
+    @config.foo == 'bar'
+  end
+end
