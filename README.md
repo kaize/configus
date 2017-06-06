@@ -1,11 +1,10 @@
 # Configus
 
-[![Gem Version](https://badge.fury.io/rb/configus.png)](https://rubygems.org/gems/configus)
-[![Build Status](https://travis-ci.org/kaize/configus.png)](https://travis-ci.org/kaize/configus)
-[![Dependency Status](https://gemnasium.com/kaize/configus.png)](https://gemnasium.com/kaize/configus)
-[![Code Climate](https://codeclimate.com/github/kaize/configus.png)](https://codeclimate.com/github/kaize/configus)
-[![Coverage Status](https://coveralls.io/repos/kaize/configus/badge.png?branch=master)](https://coveralls.io/r/kaize/configus)
-[![Gem Version](http://stillmaintained.com/kaize/configus.png)](http://stillmaintained.com/kaize/configus)
+[![Gem Version](https://badge.fury.io/rb/configus.svg)](https://rubygems.org/gems/configus)
+[![Build Status](https://travis-ci.org/kaize/configus.svg)](https://travis-ci.org/kaize/configus)
+[![Dependency Status](https://gemnasium.com/kaize/configus.svg)](https://gemnasium.com/kaize/configus)
+[![Code Climate](https://codeclimate.com/github/kaize/configus.svg)](https://codeclimate.com/github/kaize/configus)
+[![Coverage Status](https://coveralls.io/repos/kaize/configus/badge.svg?branch=master)](https://coveralls.io/r/kaize/configus)
 
 ## Summary
 
