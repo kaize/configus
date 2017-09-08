@@ -15,6 +15,8 @@ module Configus
     end
 
     def method_missing(key, value = nil, &block)
+      raise ArgumentError, "Double definition of key '#{key}'" if @result.has_key?(key)
+
       @result[key] = block_given? ? self.class.generate(block) : value
     end
   end
