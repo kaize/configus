@@ -31,7 +31,8 @@ module Configus
     def to_hash
       hash = {}
       @config.each_pair do |key, value|
-        hash[key] = value.respond_to?(:to_hash) ? value.to_hash : value
+        calc_value = value.respond_to?(:call) ? value.call : value
+        hash[key]  = calc_value.respond_to?(:to_hash) ? calc_value.to_hash : calc_value
       end
       hash
     end
